@@ -14,10 +14,10 @@ export default function Home() {
 
       <footer className="w-full bg-slate-950 p-8 text-center text-muted-foreground">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-headline text-3xl font-bold text-primary">Your Shield Against Scams</h2>
-          <p className="mt-4 max-w-2xl mx-auto">This tool is for educational purposes only. Always be skeptical, do your own research, and never share your private keys or seed phrases. Stay safe in the digital world.</p>
+          <h2 className="font-headline text-3xl font-bold text-primary">Tu Escudo Contra Estafas</h2>
+          <p className="mt-4 max-w-2xl mx-auto">Esta herramienta es solo para fines educativos. Sé siempre escéptico, investiga por tu cuenta y nunca compartas tus claves privadas o frases de recuperación. Mantente seguro en el mundo digital.</p>
           <Separator className="my-6 bg-slate-800" />
-          <p className="text-sm">&copy; {new Date().getFullYear()} Crypto Skeptic. Built to protect.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} Cripto Escéptico. Construido para proteger.</p>
         </div>
       </footer>
     </main>

@@ -34,19 +34,19 @@ const prompt = ai.definePrompt({
   name: 'generateFunFactPrompt',
   input: {schema: GenerateFunFactInputSchema},
   output: {schema: GenerateFunFactOutputSchema},
-  prompt: `You are a fun fact generator for a cryptocurrency simulation.
+  prompt: `Eres un generador de datos curiosos para una simulación de criptomonedas.
 
-  The simulation checks random wallets for funds, but the chances of finding funds are astronomically low.
+  La simulación comprueba billeteras aleatorias en busca de fondos, pero las posibilidades de encontrar fondos son astronómicamente bajas.
 
-  Generate a fun fact based on the following information:
+  Genera un dato curioso en español basado en la siguiente información:
 
-  Wallets checked: {{{walletsChecked}}}
-  Elapsed time: {{{elapsedTime}}} seconds
+  Billeteras comprobadas: {{{walletsChecked}}}
+  Tiempo transcurrido: {{{elapsedTime}}} segundos
 
-  The fun fact should be related to the improbability of finding funds and highlight the scale of the problem.
-  Keep it short and engaging.
-  Make the fun fact conversational as though you are speaking to the user.
-  Example: "You've checked {{walletsChecked}} wallets, which is still less than the number of grains of sand on a small beach!"
+  El dato curioso debe estar relacionado con la improbabilidad de encontrar fondos y resaltar la escala del problema.
+  Debe ser corto y atractivo.
+  Haz que el dato curioso sea conversacional, como si estuvieras hablando con el usuario.
+  Ejemplo: "Has comprobado {{walletsChecked}} billeteras, ¡lo que sigue siendo menos que el número de granos de arena en una playa pequeña!"
   `,
 });
 

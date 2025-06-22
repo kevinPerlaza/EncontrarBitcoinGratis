@@ -26,7 +26,7 @@ export default function ImprobabilitySimulator() {
     const [isSimulating, setIsSimulating] = useState(false);
     const [walletsChecked, setWalletsChecked] = useState(0);
     const [checkRate, setCheckRate] = useState(0);
-    const [funFact, setFunFact] = useState("Press 'Start Simulation' to begin...");
+    const [funFact, setFunFact] = useState("Presiona 'Iniciar Simulación' para comenzar...");
     const [log, setLog] = useState<LogEntry[]>([]);
 
     const { toast } = useToast();
@@ -56,8 +56,8 @@ export default function ImprobabilitySimulator() {
         } catch (error) {
             console.error("Failed to generate fun fact:", error);
             toast({
-                title: "AI Error",
-                description: "Could not generate a fun fact at this time.",
+                title: "Error de IA",
+                description: "No se pudo generar un dato curioso en este momento.",
                 variant: "destructive"
             })
         }
@@ -106,9 +106,9 @@ export default function ImprobabilitySimulator() {
     return (
         <section id="impossibility" className="w-full bg-background py-20 md:py-32">
             <div className="container mx-auto max-w-5xl px-4 text-center">
-                <h2 className="font-headline text-4xl font-bold md:text-5xl">Don't Believe Us? Try It Yourself.</h2>
+                <h2 className="font-headline text-4xl font-bold md:text-5xl">¿No nos crees? Inténtalo tú mismo.</h2>
                 <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
-                    We built a simulator that runs 100% in your browser. Try to find random funds. Witness the futility in real-time.
+                    Construimos un simulador que se ejecuta 100% en tu navegador. Intenta encontrar fondos al azar. Sé testigo de la futilidad en tiempo real.
                 </p>
 
                 <Card className="mt-12 text-left shadow-2xl bg-slate-950 border-slate-800">
@@ -118,14 +118,14 @@ export default function ImprobabilitySimulator() {
                             <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
                             <div className="h-3 w-3 rounded-full bg-green-500"></div>
                         </div>
-                        <p className="font-code text-sm text-slate-300">Heimdall Impossibility Simulator</p>
+                        <p className="font-code text-sm text-slate-300">Simulador de Imposibilidad Heimdall</p>
                     </CardHeader>
                     <CardContent className="p-4 md:p-6">
                         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                            <StatBox icon={<Cpu className="text-primary" />} label="Wallets Checked" value={walletsChecked.toLocaleString()} />
-                            <StatBox icon={<Activity className="text-primary" />} label="Check Rate" value={`${checkRate.toLocaleString()} w/s`} />
-                            <StatBox icon={<Coins className="text-primary" />} label="Funds Found" value="0.00000000" />
-                            <StatBox icon={<Lightbulb className="text-primary" />} label="Fun Fact" value={funFact} />
+                            <StatBox icon={<Cpu className="text-primary" />} label="Billeteras Verificadas" value={walletsChecked.toLocaleString()} />
+                            <StatBox icon={<Activity className="text-primary" />} label="Tasa de Verificación" value={`${checkRate.toLocaleString()} b/s`} />
+                            <StatBox icon={<Coins className="text-primary" />} label="Fondos Encontrados" value="0.00000000" />
+                            <StatBox icon={<Lightbulb className="text-primary" />} label="Dato Curioso" value={funFact} />
                         </div>
                         
                         <div className="mt-6">
@@ -135,7 +135,7 @@ export default function ImprobabilitySimulator() {
                                     {log.map(entry => (
                                         <div key={entry.id}>
                                             <span className="text-green-400">[OK] </span>
-                                            <span className="text-slate-500">BALANCE: 0.00 </span>
+                                            <span className="text-slate-500">SALDO: 0.00 </span>
                                             <span className="text-cyan-400">{entry.address}</span>
                                         </div>
                                     ))}
@@ -145,7 +145,7 @@ export default function ImprobabilitySimulator() {
                         
                         <Button onClick={handleToggleSimulation} className="mt-6 w-full" size="lg">
                             {isSimulating ? <Square className="mr-2" /> : <Play className="mr-2" />}
-                            {isSimulating ? 'Stop Simulation' : 'Start Simulation'}
+                            {isSimulating ? 'Detener Simulación' : 'Iniciar Simulación'}
                         </Button>
                     </CardContent>
                 </Card>

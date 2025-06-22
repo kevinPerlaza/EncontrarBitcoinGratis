@@ -20,28 +20,28 @@ export default function RealitySection() {
   return (
     <section id="reality" className="w-full bg-background py-20 md:py-32">
         <div className="container mx-auto max-w-5xl px-4 text-center">
-            <h2 className="font-headline text-4xl font-bold md:text-5xl">Stop. What You're Trying is Mathematically Impossible.</h2>
+            <h2 className="font-headline text-4xl font-bold md:text-5xl">Detente. Lo que intentas es matemáticamente imposible.</h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
-                The security of Bitcoin isn't a simple lock. It's a mathematical wall designed to be unbreakable. The promise of "finding" a random wallet isn't just difficult—it's a fantasy.
+                La seguridad de Bitcoin no es una simple cerradura. Es un muro matemático diseñado para ser inquebrantable. La promesa de "encontrar" una billetera al azar no es solo difícil, es una fantasía.
             </p>
 
             <div className="mt-12 flex flex-col items-center justify-center gap-8 md:flex-row">
                 <InfoBox 
                     icon={<Binary className="h-6 w-6" />}
-                    title="12-Word Seed Phrases" 
+                    title="Frases de recuperación de 12 palabras" 
                     number={<>~2<sup className="text-2xl">128</sup></>}
-                    description="Possible Combinations"
+                    description="Combinaciones Posibles"
                 />
                 <InfoBox 
                     icon={<Atom className="h-6 w-6" />}
-                    title="Atoms in the Universe" 
+                    title="Átomos en el Universo" 
                     number={<>~10<sup className="text-2xl">80</sup></>}
-                    description="Estimated"
+                    description="Estimado"
                 />
             </div>
 
             <p className="mx-auto mt-12 max-w-3xl border-l-4 border-primary bg-primary/5 p-4 text-left text-lg italic text-foreground">
-                You would need the power of every supercomputer on the planet and billions of years to have a minimal chance. If it were easy, the entire system would collapse.
+                Necesitarías el poder de todas las supercomputadoras del planeta y miles de millones de años para tener una mínima posibilidad. Si fuera fácil, todo el sistema colapsaría.
             </p>
         </div>
     </section>

@@ -44,21 +44,21 @@ export default function HeroSection() {
       <BackgroundAnimation />
       <div className="relative z-10 flex flex-col items-center p-4">
         <h1 className="font-headline text-5xl font-bold uppercase text-primary md:text-7xl" style={{ textShadow: '0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary))' }}>
-          Find Free Bitcoin?
+          ¿Encontrar Bitcoin Gratis?
         </h1>
         <p className="mt-4 font-code text-lg text-primary/80">
-          Initiating digital treasure hunt protocol...
+          Iniciando protocolo de búsqueda de tesoro digital...
         </p>
 
         <div className="mt-8 rounded-lg border border-primary/50 bg-slate-900/50 p-6 backdrop-blur-sm">
-          <p className="text-sm uppercase text-primary/70">Combinations Tested</p>
+          <p className="text-sm uppercase text-primary/70">Combinaciones Probadas</p>
           <span className="font-code text-4xl font-bold text-white md:text-5xl" style={{ textShadow: '0 0 5px #fff' }}>
             {counter.toLocaleString()}
           </span>
         </div>
 
         <Button onClick={handleStartClick} className="mt-8" size="lg">
-          <ArrowDown className="mr-2" /> Start the Treasure Hunt
+          <ArrowDown className="mr-2" /> Iniciar la Búsqueda del Tesoro
         </Button>
       </div>
     </section>
