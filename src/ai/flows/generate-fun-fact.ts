@@ -8,8 +8,7 @@
  * - GenerateFunFactOutput - The return type for the generateFunFact function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import {z} from 'zod';
 
 const GenerateFunFactInputSchema = z.object({
   walletsChecked: z
@@ -26,38 +25,22 @@ const GenerateFunFactOutputSchema = z.object({
 });
 export type GenerateFunFactOutput = z.infer<typeof GenerateFunFactOutputSchema>;
 
-export async function generateFunFact(input: GenerateFunFactInput): Promise<GenerateFunFactOutput> {
-  return generateFunFactFlow(input);
+export async function generateFunFact(
+  input: GenerateFunFactInput
+): Promise<GenerateFunFactOutput> {
+  const funFacts = [
+    `Has comprobado ${input.walletsChecked.toLocaleString()} billeteras. ¡Eso es más que la cantidad de estrellas que puedes ver a simple vista!`,
+    `Si cada billetera que has comprobado fuera un grano de arena, todavía no tendrías suficiente para llenar un dedal.`,
+    `La probabilidad de encontrar una billetera con fondos es menor que la de ser alcanzado por un rayo... dos veces.`,
+    `En los ${Math.round(
+      input.elapsedTime
+    )} segundos que llevas, se han realizado millones de transacciones de Bitcoin reales en todo el mundo.`,
+    `¡Sigue así! A este ritmo, comprobarás tantas billeteras como átomos hay en el universo en solo unos pocos billones de años.`,
+  ];
+
+  const randomIndex = Math.floor(Math.random() * funFacts.length);
+
+  return Promise.resolve({
+    funFact: funFacts[randomIndex],
+  });
 }
-
-const prompt = ai.definePrompt({
-  name: 'generateFunFactPrompt',
-  input: {schema: GenerateFunFactInputSchema},
-  output: {schema: GenerateFunFactOutputSchema},
-  prompt: `Eres un generador de datos curiosos para una simulación de criptomonedas.
-
-  La simulación comprueba billeteras aleatorias en busca de fondos, pero las posibilidades de encontrar fondos son astronómicamente bajas.
-
-  Genera un dato curioso en español basado en la siguiente información:
-
-  Billeteras comprobadas: {{{walletsChecked}}}
-  Tiempo transcurrido: {{{elapsedTime}}} segundos
-
-  El dato curioso debe estar relacionado con la improbabilidad de encontrar fondos y resaltar la escala del problema.
-  Debe ser corto y atractivo.
-  Haz que el dato curioso sea conversacional, como si estuvieras hablando con el usuario.
-  Ejemplo: "Has comprobado {{walletsChecked}} billeteras, ¡lo que sigue siendo menos que el número de granos de arena en una playa pequeña!"
-  `,
-});
-
-const generateFunFactFlow = ai.defineFlow(
-  {
-    name: 'generateFunFactFlow',
-    inputSchema: GenerateFunFactInputSchema,
-    outputSchema: GenerateFunFactOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
-  }
-);
